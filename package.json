@@ -1,0 +1,44 @@
+{
+  "name": "@bizjs/chainkit",
+  "version": "0.0.1",
+  "description": "Blockchain business development toolkit",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "pub": "npm run build && npm publish",
+    "test": "jest",
+    "test:cov": "jest --coverage"
+  },
+  "keywords": [
+    "blockchain",
+    "evm",
+    "ton",
+    "bitcoin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bizjs/chainkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bizjs/chainkit/issues"
+  },
+  "author": "hstarorg <hm910705@163.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "jest": "^29.7.0",
+    "rimraf": "^5.0.10",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.7.2"
+  },
+  "peerDependencies": {},
+  "dependencies": {}
+}
