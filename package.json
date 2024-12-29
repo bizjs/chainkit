@@ -49,6 +49,7 @@
     "@ton/ton": "^15.1.0",
     "@unisat/wallet-sdk": "^1.8.0",
     "bitcoinjs-lib": "^6.1.7",
+    "bitcore-lib": "10.0.0",
     "bs58": "^6.0.0",
     "ecpair": "3.0.0-rc.0",
     "starknet": "^6.11.0",

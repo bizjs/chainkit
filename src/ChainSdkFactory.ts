@@ -1,12 +1,12 @@
 import { ChainType } from './constants';
 
-import { AptosChain } from './chains/AptosChain';
-import { BitcoinChain } from './chains/BitcoinChain';
-import { CardanoChain } from './chains/CardanoChain';
-import { EvmChain } from './chains/EVMChain';
-import { SolanaChain } from './chains/SolanaChain';
-import { StarknetChain } from './chains/StarknetChain';
-import { TVMChain } from './chains/TVMChain';
+import { AptosChain } from './chain-sdks/AptosChain';
+import { BitcoinChain } from './chain-sdks/BitcoinChain';
+import { CardanoChain } from './chain-sdks/CardanoChain';
+import { EvmChain } from './chain-sdks/EVMChain';
+import { SolanaChain } from './chain-sdks/SolanaChain';
+import { StarknetChain } from './chain-sdks/StarknetChain';
+import { TVMChain } from './chain-sdks/TVMChain';
 
 type ChainSdkResult<T extends ChainType> = T extends ChainType.Aptos
   ? AptosChain
