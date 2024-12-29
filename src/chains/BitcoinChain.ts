@@ -1,5 +1,5 @@
 import * as bitcoinjsLib from 'bitcoinjs-lib';
-import { verifyMessage as unisatVerifyMessage } from '@unisat/wallet-utils';
+import { message as messageUtil } from '@unisat/wallet-sdk';
 import { BtcWallet, BITCOIN_MESSAGE_ECDSA } from '@okxweb3/coin-bitcoin';
 import * as tinysecp from 'tiny-secp256k1';
 import { ECPairAPI, ECPairFactory } from 'ecpair';
@@ -24,7 +24,7 @@ export class BitcoinChain {
   }
 
   async verifyUnisatMessage(publicKey: string, message: string, signature: string): Promise<boolean> {
-    return unisatVerifyMessage(publicKey, message, signature);
+    return messageUtil.verifyMessageOfECDSA(publicKey, message, signature);
   }
 
   async verifyEcdsaMessage(publicKey: string, message: string, signature: string): Promise<boolean> {

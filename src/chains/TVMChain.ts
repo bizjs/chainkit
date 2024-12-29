@@ -3,6 +3,11 @@ import { Address, WalletContractV4, WalletContractV5R1 } from '@ton/ton';
 
 import { naclSignDetachedVerify } from '../utils';
 
+export enum TVMWalletVersion {
+  V4 = 'V4',
+  V5R1 = 'V5R1',
+}
+
 export class TVMChain {
   async verifyMessage(publicKey: string, message: string, signature: string): Promise<boolean> {
     const finalMessage = Buffer.concat([
@@ -26,7 +31,7 @@ export class TVMChain {
   ): Promise<boolean> {
     const publicKeyBuffer = Buffer.from(publicKey, 'hex');
 
-    const wallet = this.tryGetTonWallet(publicKeyBuffer, address);
+    const wallet = this._tryGetTonWallet(publicKeyBuffer, address);
 
     const fullMessageBuffer = this.buildFullMessageForTonConnect(wallet, JSON.parse(message), address);
 
@@ -84,7 +89,7 @@ export class TVMChain {
     return Buffer.from(res);
   }
 
-  private tryGetTonWallet(publicKey: Buffer, address: string): WalletContractV4 | WalletContractV5R1 {
+  private _tryGetTonWallet(publicKey: Buffer, address: string): WalletContractV4 | WalletContractV5R1 {
     // 默认走 V4
     if (!address) {
       return WalletContractV4.create({ publicKey, workchain: 0 });
@@ -96,5 +101,28 @@ export class TVMChain {
         return w;
       }
     }
+  }
+
+  getWalletVersion(publicKey: string, address: string): TVMWalletVersion {
+    const wallet = this._tryGetTonWallet(Buffer.from(publicKey, 'hex'), address);
+    if (wallet instanceof WalletContractV4) {
+      return TVMWalletVersion.V4;
+    } else if (wallet instanceof WalletContractV5R1) {
+      return TVMWalletVersion.V5R1;
+    }
+    throw new Error('Invalid wallet version');
+  }
+
+  async getAddress(publicKey: string, walletVersion: TVMWalletVersion): Promise<Address> {
+    const publicKeyBuffer = Buffer.from(publicKey, 'hex');
+    let wallet: WalletContractV4 | WalletContractV5R1;
+    if (walletVersion === 'V4') {
+      wallet = WalletContractV4.create({ publicKey: publicKeyBuffer, workchain: 0 });
+    } else if (walletVersion === 'V5R1') {
+      wallet = WalletContractV5R1.create({ publicKey: publicKeyBuffer, workchain: 0 });
+    } else {
+      throw new Error('Invalid wallet version');
+    }
+    return wallet.address;
   }
 }

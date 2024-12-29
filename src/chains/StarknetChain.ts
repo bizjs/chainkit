@@ -163,23 +163,23 @@ export class StarknetChain {
     publicKey: string,
     message: string,
     signature: string,
-    options?: {
+    options: {
+      network: constants.NetworkName;
       nodeUrl?: string;
-      network?: constants.NetworkName;
     },
   ): Promise<boolean> {
     const rpcProviderOptions: RpcProviderOptions = {};
-    if (options?.nodeUrl) {
-      rpcProviderOptions.nodeUrl = options.nodeUrl;
+    if (options.network === constants.NetworkName.SN_MAIN) {
+      rpcProviderOptions.chainId = constants.StarknetChainId.SN_MAIN;
+      rpcProviderOptions.nodeUrl = 'https://starknet-mainnet.public.blastapi.io';
+    } else if (options.network === constants.NetworkName.SN_SEPOLIA) {
+      rpcProviderOptions.chainId = constants.StarknetChainId.SN_SEPOLIA;
+      rpcProviderOptions.nodeUrl = 'https://starknet-sepolia.public.blastapi.io';
+    } else {
+      throw new Error('Invalid starknet network');
     }
-    if (options?.network) {
-      if (options.network === constants.NetworkName.SN_MAIN) {
-        rpcProviderOptions.chainId = constants.StarknetChainId.SN_MAIN;
-      } else if (options.network === constants.NetworkName.SN_SEPOLIA) {
-        rpcProviderOptions.chainId = constants.StarknetChainId.SN_SEPOLIA;
-      } else {
-        throw new Error('Invalid starknet network');
-      }
+    if (options.nodeUrl) {
+      rpcProviderOptions.nodeUrl = options.nodeUrl;
     }
 
     const provider = new RpcProvider(rpcProviderOptions);
@@ -206,7 +206,7 @@ export class StarknetChain {
     return verified;
   }
 
-  getChecksumAddress(publicKey: string): string {
+  async getChecksumAddress(publicKey: string): Promise<string> {
     return getChecksumAddress(publicKey);
   }
 }
