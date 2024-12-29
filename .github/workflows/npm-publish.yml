@@ -30,7 +30,7 @@ jobs:
         with:
           version: latest # optional
           run_install: false
-      - run: pnpm i
+      - run: pnpm i --ignore-scripts
       - run: npm run pub
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
