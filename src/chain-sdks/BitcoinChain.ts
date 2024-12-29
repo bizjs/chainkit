@@ -3,6 +3,7 @@ import { message as messageUtil } from '@unisat/wallet-sdk';
 import { BtcWallet, BITCOIN_MESSAGE_ECDSA } from '@okxweb3/coin-bitcoin';
 import * as tinysecp from 'tiny-secp256k1';
 import { ECPairAPI, ECPairFactory } from 'ecpair';
+import { NetworkType } from '@unisat/wallet-sdk/lib/network';
 
 let initResult: { ecpair: ECPairAPI } | null = null;
 
@@ -40,6 +41,13 @@ export class BitcoinChain {
     return verified;
   }
 
+  /**
+   * verify BIP322 message(for leather wallet)
+   * @param publicKey
+   * @param message
+   * @param signature
+   * @returns
+   */
   async verifyBIP322Message(publicKey: string, message: string, signature: string): Promise<boolean> {
     // see link: https://github.com/bitcoinjs/bitcoinjs-lib/issues/1918
     const verified = this._verifyBip322(message, publicKey, signature);
