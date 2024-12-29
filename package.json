@@ -39,7 +39,7 @@
     "rimraf": "^5.0.10",
     "ts-jest": "^29.2.5",
     "typescript": "^5.7.2",
-    "viem": "^2.21.57"
+    "viem": "^2.21.58"
   },
   "dependencies": {
     "@aptos-labs/ts-sdk": "^1.33.1",
@@ -47,9 +47,8 @@
     "@emurgo/cardano-serialization-lib-nodejs": "^13.2.0",
     "@okxweb3/coin-bitcoin": "1.0.3",
     "@ton/ton": "^15.1.0",
-    "@unisat/wallet-utils": "^1.0.0",
+    "@unisat/wallet-sdk": "^1.8.0",
     "bitcoinjs-lib": "^6.1.7",
-    "bitcore-lib": "^10.7.0",
     "bs58": "^6.0.0",
     "ecpair": "3.0.0-rc.0",
     "starknet": "^6.11.0",
