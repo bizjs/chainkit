@@ -1,3 +1,8 @@
+## 0.0.2 (2025-02-05)
+
+- Upgrade deps
+- Refactor `ChainSdkFactory`
+
 ## 0.0.1 (2024-12-29)
 
 - Implement server-side signature verification and address retrieval for multiple blockchains.
