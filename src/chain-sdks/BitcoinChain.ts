@@ -3,7 +3,6 @@ import { message as messageUtil } from '@unisat/wallet-sdk';
 import { BtcWallet, BITCOIN_MESSAGE_ECDSA } from '@okxweb3/coin-bitcoin';
 import * as tinysecp from 'tiny-secp256k1';
 import { ECPairAPI, ECPairFactory } from 'ecpair';
-import { NetworkType } from '@unisat/wallet-sdk/lib/network';
 
 let initResult: { ecpair: ECPairAPI } | null = null;
 

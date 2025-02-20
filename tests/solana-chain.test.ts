@@ -4,7 +4,7 @@ describe('solana-chain', () => {
   let sdk: SolanaChain;
 
   beforeEach(() => {
-    sdk = ChainSdkFactory.getChainSdk(ChainType.Solana);
+    sdk = ChainSdkFactory.getChainSdk(ChainType.Solana)!;
   });
 
   const testData = {

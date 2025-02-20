@@ -33,7 +33,7 @@ export class TVMChain {
 
     const wallet = this._tryGetTonWallet(publicKeyBuffer, address);
 
-    const fullMessageBuffer = this.buildFullMessageForTonConnect(wallet, JSON.parse(message), address);
+    const fullMessageBuffer = this.buildFullMessageForTonConnect(wallet.address, JSON.parse(message));
 
     const sig = Buffer.from(signature, 'base64');
 
@@ -48,7 +48,7 @@ export class TVMChain {
    * @returns
    */
   private buildFullMessageForTonConnect(
-    wallet: WalletContractV4 | WalletContractV5R1,
+    addr: Address,
     message: {
       timestamp: number;
       payload: string;
@@ -57,13 +57,12 @@ export class TVMChain {
         value: string;
       };
     },
-    address: string,
   ): Buffer {
     const tonProofPrefix = 'ton-proof-item-v2/';
     const tonConnectPrefix = 'ton-connect';
 
     const wc = Buffer.alloc(4);
-    wc.writeUint32BE(wallet.address.workChain);
+    wc.writeUint32BE(addr.workChain);
 
     const ts = Buffer.alloc(8);
     ts.writeBigUint64LE(BigInt(message.timestamp));
@@ -74,7 +73,7 @@ export class TVMChain {
     const m = Buffer.concat([
       Buffer.from(tonProofPrefix),
       wc,
-      wallet.address.hash,
+      addr.hash,
       dl,
       Buffer.from(message.domain.value),
       ts,

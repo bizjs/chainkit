@@ -1,3 +1,7 @@
+## 0.1.0 (2025-02-20)
+
+- Improve `solana chain`, supports `fetchTokenVersion, fetchTokenMetadata`
+
 ## 0.0.2 (2025-02-05)
 
 - Upgrade deps
