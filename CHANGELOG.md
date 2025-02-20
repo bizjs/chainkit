@@ -1,4 +1,4 @@
-## 0.1.0 (2025-02-20)
+## 0.0.3 (2025-02-20)
 
 - Improve `solana chain`, supports `fetchTokenVersion, fetchTokenMetadata`
 
