@@ -1,9 +1,11 @@
 import { createHash } from 'node:crypto';
-import { Address, WalletContractV4, WalletContractV5R1 } from '@ton/ton';
+import { Address, WalletContractV3R1, WalletContractV3R2, WalletContractV4, WalletContractV5R1 } from '@ton/ton';
 
 import { naclSignDetachedVerify } from '../utils';
 
 export enum TVMWalletVersion {
+  V3R1 = 'V3R1',
+  V3R2 = 'V3R2',
   V4 = 'V4',
   V5R1 = 'V5R1',
 }
@@ -88,13 +90,16 @@ export class TVMChain {
     return Buffer.from(res);
   }
 
-  private _tryGetTonWallet(publicKey: Buffer, address: string): WalletContractV4 | WalletContractV5R1 {
+  private _tryGetTonWallet(
+    publicKey: Buffer,
+    address: string,
+  ): WalletContractV4 | WalletContractV5R1 | WalletContractV3R2 | WalletContractV3R1 {
     // 默认走 V4
     if (!address) {
       return WalletContractV4.create({ publicKey, workchain: 0 });
     }
     const rawAddress = Address.parse(address).toRawString();
-    for (const WalletContract of [WalletContractV4, WalletContractV5R1]) {
+    for (const WalletContract of [WalletContractV4, WalletContractV5R1, WalletContractV3R2, WalletContractV3R1]) {
       const w = WalletContract.create({ publicKey, workchain: 0 });
       if (w.address.toRawString() === rawAddress) {
         return w;
@@ -108,6 +113,10 @@ export class TVMChain {
       return TVMWalletVersion.V4;
     } else if (wallet instanceof WalletContractV5R1) {
       return TVMWalletVersion.V5R1;
+    } else if (wallet instanceof WalletContractV3R1) {
+      return TVMWalletVersion.V3R1;
+    } else if (wallet instanceof WalletContractV3R2) {
+      return TVMWalletVersion.V3R2;
     }
     throw new Error('Invalid wallet version');
   }
@@ -115,10 +124,14 @@ export class TVMChain {
   async getAddress(publicKey: string, walletVersion: TVMWalletVersion): Promise<Address> {
     const publicKeyBuffer = Buffer.from(publicKey, 'hex');
     let wallet: WalletContractV4 | WalletContractV5R1;
-    if (walletVersion === 'V4') {
+    if (walletVersion === TVMWalletVersion.V4) {
       wallet = WalletContractV4.create({ publicKey: publicKeyBuffer, workchain: 0 });
-    } else if (walletVersion === 'V5R1') {
+    } else if (walletVersion === TVMWalletVersion.V5R1) {
       wallet = WalletContractV5R1.create({ publicKey: publicKeyBuffer, workchain: 0 });
+    } else if (walletVersion === TVMWalletVersion.V3R2) {
+      wallet = WalletContractV3R2.create({ publicKey: publicKeyBuffer, workchain: 0 });
+    } else if (walletVersion === TVMWalletVersion.V3R1) {
+      wallet = WalletContractV3R1.create({ publicKey: publicKeyBuffer, workchain: 0 });
     } else {
       throw new Error('Invalid wallet version');
     }
