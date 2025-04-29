@@ -1,3 +1,7 @@
+## 0.0.4 (2025-04-29)
+
+- Support TON old wallet versions
+
 ## 0.0.3 (2025-02-20)
 
 - Improve `solana chain`, supports `fetchTokenVersion, fetchTokenMetadata`
