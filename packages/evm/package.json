@@ -1,0 +1,32 @@
+{
+  "name": "@bizjs/chainkit-evm",
+  "version": "0.0.1",
+  "description": "chainkit for evm",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest"
+  },
+  "keywords": [
+    "blockchain",
+    "evm",
+    "ethereum",
+    "chainkit"
+  ],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.7.0",
+  "devDependencies": {
+    "viem": "^2.29.0"
+  },
+  "peerDependencies": {
+    "viem": "^2.29.0"
+  }
+}
