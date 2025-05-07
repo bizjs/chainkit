@@ -19,7 +19,8 @@
     "bitcoin": "pnpm --filter @bizjs/chainkit-bitcoin",
     "cardano": "pnpm --filter @bizjs/chainkit-cardano",
     "starknet": "pnpm --filter @bizjs/chainkit-starknet",
-    "utils": "pnpm --filter @bizjs/chainkit-utils"
+    "utils": "pnpm --filter @bizjs/chainkit-utils",
+    "all": "pnpm --filter @bizjs/chainkit"
   },
   "keywords": [
     "blockchain",
@@ -40,6 +41,7 @@
     "access": "public"
   },
   "devDependencies": {
+    "@types/node": "^22.15.14",
     "changesets": "^1.0.2",
     "tsup": "^8.4.0",
     "typescript": "^5.7.3",

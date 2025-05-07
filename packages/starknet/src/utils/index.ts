@@ -1,5 +1,5 @@
 import { Contract, typedData, constants } from 'starknet';
-import { AccountABI } from './accountAbi';
+import { AccountABI } from './AccountABI';
 import { _getProvider } from './_internal';
 
 export class StarknetAccountNotFoundError extends Error {

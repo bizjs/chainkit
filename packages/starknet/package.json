@@ -21,5 +21,11 @@
   ],
   "author": "hstarorg",
   "license": "MIT",
-  "packageManager": "pnpm@10.7.0"
+  "packageManager": "pnpm@10.7.0",
+  "devDependencies": {
+    "starknet": "^6.24.1"
+  },
+  "peerDependencies": {
+    "starknet": "^6.24.1"
+  }
 }

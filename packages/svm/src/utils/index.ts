@@ -1,7 +1,5 @@
 import bs58 from 'bs58';
-import nacl from 'tweetnacl';
-
-const naclVerify = nacl.sign.detached.verify;
+import { naclVerify } from '@bizjs/chainkit-utils';
 
 import type { FetchTokenMetadataOptions, SplTokenFullMetadata } from '../types';
 import {

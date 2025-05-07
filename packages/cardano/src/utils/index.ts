@@ -7,6 +7,7 @@ import {
   NetworkInfo,
   Credential,
 } from '@emurgo/cardano-serialization-lib-nodejs';
+import { Buffer } from 'buffer';
 import { _message2Hex } from './_internal';
 
 /**

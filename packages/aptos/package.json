@@ -23,8 +23,7 @@
   "license": "MIT",
   "packageManager": "pnpm@10.7.0",
   "dependencies": {
+    "@aptos-labs/ts-sdk": "^2.0.0",
     "@bizjs/chainkit-utils": "workspace:*"
-  },
-  "devDependencies": {},
-  "peerDependencies": {}
+  }
 }
