@@ -1,0 +1,29 @@
+{
+  "name": "@bizjs/chainkit-utils",
+  "version": "0.0.1",
+  "description": "chainkit utils",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest"
+  },
+  "keywords": [
+    "blockchain",
+    "utils",
+    "chainkit"
+  ],
+  "author": "hstarorg",
+  "license": "MIT",
+  "packageManager": "pnpm@10.7.0",
+  "devDependencies": {
+    "@noble/hashes": "^1.8.0",
+    "tweetnacl": "^1.0.3"
+  }
+}
