@@ -1,0 +1,32 @@
+{
+  "name": "@bizjs/chainkit-tvm",
+  "version": "1.0.0",
+  "description": "chainkit for tvm",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest"
+  },
+  "keywords": [
+    "blockchain",
+    "ton",
+    "chainkit"
+  ],
+  "author": "hstarorg",
+  "license": "MIT",
+  "packageManager": "pnpm@10.7.0",
+  "devDependencies": {
+    "@ton/ton": "^15.2.1",
+    "tweetnacl": "^1.0.3"
+  },
+  "peerDependencies": {
+    "@ton/ton": ">=15"
+  }
+}
