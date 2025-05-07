@@ -45,8 +45,8 @@ importers:
         specifier: ^6.1.7
         version: 6.1.7
       ecpair:
-        specifier: 3.0.0-rc.0
-        version: 3.0.0-rc.0(typescript@5.7.3)
+        specifier: 3.0.0
+        version: 3.0.0(typescript@5.7.3)
       tiny-secp256k1:
         specifier: ^2.2.3
         version: 2.2.3
@@ -1245,9 +1245,9 @@ packages:
     resolution: {integrity: sha512-cL/mh3MtJutFOvFc27GPZE2pWL3a3k4YvzUWEOvilnfZVlH3Jwgx/7d6tlD7/75tNk8TG2m+7Kgtz0SI1tWcqw==}
     engines: {node: '>=8.0.0'}
 
-  ecpair@3.0.0-rc.0:
-    resolution: {integrity: sha512-y2CTHgI2MMeYiXd8IFgxgORWR1PpyeUACek4viZm12VcbooWhVnqFEHISO0NAiZKJb7CqXEOz5bnhv/UI0ULzw==}
-    engines: {node: '>=18.0.0'}
+  ecpair@3.0.0:
+    resolution: {integrity: sha512-kf4JxjsRQoD4EBzpYjGAcR0t9i/4oAeRPtyCpKvSwyotgkc6oA4E4M0/e+kep7cXe+mgxAvoeh/jdgH9h5+Wxw==}
+    engines: {node: '>=20.0.0'}
 
   ecurve@1.0.6:
     resolution: {integrity: sha512-/BzEjNfiSuB7jIWKcS/z8FK9jNjmEWvUV2YZ4RLSmcDtP7Lq0m6FvDuSnJpBlDpGRpfRQeTLGLBI8H+kEv0r+w==}
@@ -3407,7 +3407,7 @@ snapshots:
       typeforce: 1.18.0
       wif: 2.0.6
 
-  ecpair@3.0.0-rc.0(typescript@5.7.3):
+  ecpair@3.0.0(typescript@5.7.3):
     dependencies:
       uint8array-tools: 0.0.8
       valibot: 0.37.0(typescript@5.7.3)
