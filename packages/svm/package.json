@@ -1,0 +1,37 @@
+{
+  "name": "@bizjs/chainkit-svm",
+  "version": "1.0.0",
+  "description": "chainkit for svm",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest"
+  },
+  "keywords": [
+    "blockchain",
+    "solana",
+    "chainkit"
+  ],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.7.0",
+  "dependencies": {
+    "@metaplex-foundation/mpl-token-metadata": "^3.4.0",
+    "@metaplex-foundation/umi": "^1.2.0",
+    "@metaplex-foundation/umi-bundle-defaults": "^1.2.0"
+  },
+  "devDependencies": {
+    "@solana/spl-token": "^0.4.12",
+    "bs58": "^6.0.0"
+  },
+  "peerDependencies": {
+    "@solana/spl-token": "^0.4.12"
+  }
+}
