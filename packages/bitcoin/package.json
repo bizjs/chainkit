@@ -1,0 +1,33 @@
+{
+  "name": "@bizjs/chainkit-bitcoin",
+  "version": "0.0.1",
+  "description": "chainkit for bitcoin",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest"
+  },
+  "keywords": [
+    "blockchain",
+    "bitcoin",
+    "btc",
+    "chainkit"
+  ],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.7.0",
+  "dependencies": {
+    "@okxweb3/coin-bitcoin": "1.0.3",
+    "@unisat/wallet-sdk": "^1.8.0",
+    "bitcoinjs-lib": "^6.1.7",
+    "ecpair": "3.0.0",
+    "tiny-secp256k1": "^2.2.3"
+  }
+}
