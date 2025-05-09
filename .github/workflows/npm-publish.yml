@@ -7,30 +7,20 @@ on:
   workflow_dispatch:
 
 jobs:
-  # build:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 20
-  # - run: npm ci
-  # - run: npm test
-
-  publish-npm:
+  publish-to-npm:
     # needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           registry-url: https://registry.npmjs.org/
       - uses: pnpm/action-setup@v4
         with:
           version: latest # optional
           run_install: false
       - run: pnpm i --ignore-scripts
-      - run: npm run pub
+      - run: pnpm build && pnpm release
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
