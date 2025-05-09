@@ -1,0 +1,77 @@
+{
+  "name": "@bizjs/chainkit",
+  "version": "0.0.5",
+  "description": "chainkit",
+  "exports": {
+    "./aptos": {
+      "require": "./dist/aptos.js",
+      "import": "./dist/esm/aptos.js",
+      "types": "./dist/aptos.d.ts"
+    },
+    "./bitcoin": {
+      "require": "./dist/bitcoin.js",
+      "import": "./dist/esm/bitcoin.js",
+      "types": "./dist/bitcoin.d.ts"
+    },
+    "./cardano": {
+      "require": "./dist/cardano.js",
+      "import": "./dist/esm/cardano.js",
+      "types": "./dist/cardano.d.ts"
+    },
+    "./evm": {
+      "require": "./dist/evm.js",
+      "import": "./dist/esm/evm.js",
+      "types": "./dist/evm.d.ts"
+    },
+    "./starknet": {
+      "require": "./dist/starknet.js",
+      "import": "./dist/esm/starknet.js",
+      "types": "./dist/starknet.d.ts"
+    },
+    "./svm": {
+      "require": "./dist/svm.js",
+      "import": "./dist/esm/svm.js",
+      "types": "./dist/svm.d.ts"
+    },
+    "./tvm": {
+      "require": "./dist/tvm.js",
+      "import": "./dist/esm/tvm.js",
+      "types": "./dist/tvm.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bizjs/chainkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bizjs/chainkit/issues"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest"
+  },
+  "keywords": [
+    "blockchain",
+    "chainkit"
+  ],
+  "author": "hstarorg",
+  "license": "MIT",
+  "packageManager": "pnpm@10.7.0",
+  "dependencies": {
+    "@bizjs/chainkit-evm": "workspace:*",
+    "@bizjs/chainkit-tvm": "workspace:*",
+    "@bizjs/chainkit-svm": "workspace:*",
+    "@bizjs/chainkit-aptos": "workspace:*",
+    "@bizjs/chainkit-bitcoin": "workspace:*",
+    "@bizjs/chainkit-cardano": "workspace:*",
+    "@bizjs/chainkit-starknet": "workspace:*"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "@bizjs/chainkit-starknet",
+  "version": "0.0.2",
+  "description": "chainkit for starknet",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bizjs/chainkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bizjs/chainkit/issues"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest"
+  },
+  "keywords": [
+    "blockchain",
+    "starknet",
+    "chainkit"
+  ],
+  "author": "hstarorg",
+  "license": "MIT",
+  "packageManager": "pnpm@10.7.0",
+  "devDependencies": {
+    "starknet": "^6.24.1"
+  },
+  "peerDependencies": {
+    "starknet": "^6.24.1"
+  }
+}
