@@ -16,3 +16,10 @@ pnpm build
 # Publish
 pnpm run pub
 ```
+
+## Changeset
+
+```bash
+# Init changeset
+pnpm cs init
+```

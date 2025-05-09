@@ -1,6 +1,6 @@
 {
   "name": "@bizjs/chainkit",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "chainkit",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -46,6 +46,9 @@
     "dist"
   ],
   "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
