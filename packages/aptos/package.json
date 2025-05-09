@@ -12,6 +12,13 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bizjs/chainkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bizjs/chainkit/issues"
+  },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",

@@ -2,9 +2,6 @@
   "name": "@bizjs/chainkit",
   "version": "0.0.5",
   "description": "chainkit",
-  "main": "dist/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/index.d.ts",
   "exports": {
     "./aptos": {
       "require": "./dist/aptos.js",
@@ -48,6 +45,13 @@
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bizjs/chainkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bizjs/chainkit/issues"
   },
   "scripts": {
     "build": "tsup",

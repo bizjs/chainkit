@@ -17,6 +17,13 @@
     "dev": "tsup --watch",
     "test": "vitest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bizjs/chainkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bizjs/chainkit/issues"
+  },
   "keywords": [
     "blockchain",
     "evm",
