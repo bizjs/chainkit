@@ -22,4 +22,13 @@ pnpm run pub
 ```bash
 # Init changeset
 pnpm cs init
+
+# Generate changeset
+pnpm cs
+
+# Update version
+pnpm cs version
+
+# Release
+pnpm release
 ```
