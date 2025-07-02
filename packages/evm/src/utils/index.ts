@@ -15,3 +15,11 @@ export async function verifyEIP712Message(address: Address, message: string, sig
   const valid = await verifyTypedData({ ...typedData, address, signature });
   return valid;
 }
+
+export async function getBalance() {}
+
+export async function getTokenBalance() {}
+
+export async function getTokenDecimals() {}
+
+export async function getTokenInfo() {}
