@@ -10,6 +10,7 @@ import type {
   ContractFunctionArgs,
   ReadContractParameters,
   SimulateContractParameters,
+  WaitForTransactionReceiptParameters,
 } from 'viem';
 
 export type ContractClientBaseOptions = {
@@ -21,17 +22,14 @@ export type ContractClientBaseOptions = {
 };
 
 export abstract class ContractClientBase {
-  constructor(private readonly options: ContractClientBaseOptions) {}
+  private readonly publicClient: PublicClient;
 
-  private _publicClient: PublicClient | undefined;
-  protected get publicClient(): PublicClient {
-    if (!this._publicClient) {
-      this._publicClient = createPublicClient({
-        chain: this.options.chain,
-        transport: http(this.options.endpoint),
-      });
-    }
-    return this._publicClient;
+  constructor(private readonly options: ContractClientBaseOptions) {
+    // init public client
+    this.publicClient = createPublicClient({
+      chain: this.options.chain,
+      transport: http(this.options.endpoint),
+    });
   }
 
   protected async readContract<
@@ -84,5 +82,9 @@ export abstract class ContractClientBase {
 
   protected async multicall(parameters: MulticallParameters<any[], boolean>) {
     return await this.publicClient.multicall(parameters);
+  }
+
+  protected async waitForTransactionReceipt(args: WaitForTransactionReceiptParameters<typeof this.options.chain>) {
+    return await this.publicClient.waitForTransactionReceipt(args);
   }
 }
