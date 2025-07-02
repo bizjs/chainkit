@@ -21,31 +21,38 @@ export type ContractClientBaseOptions = {
   walletClient?: WalletClient;
 };
 
-export abstract class ContractClientBase {
+export abstract class ContractClientBase<TAbi extends Abi> {
   private readonly publicClient: PublicClient;
 
-  constructor(private readonly options: ContractClientBaseOptions) {
+  protected readonly abi: Abi;
+  protected readonly contractAddress: Address;
+  private readonly chain: Chain;
+  private readonly walletClient: WalletClient | undefined;
+
+  constructor(options: ContractClientBaseOptions) {
+    this.abi = options.abi;
+    this.contractAddress = options.contractAddress;
+    this.chain = options.chain;
+    this.walletClient = options.walletClient;
+
     // init public client
     this.publicClient = createPublicClient({
-      chain: this.options.chain,
-      transport: http(this.options.endpoint),
+      chain: this.chain,
+      transport: http(options.endpoint),
     });
   }
 
   protected async readContract<
-    functionName extends ContractFunctionName<typeof this.options.abi, 'pure' | 'view'>,
-    const args extends ContractFunctionArgs<typeof this.options.abi, 'pure' | 'view', functionName>,
+    functionName extends ContractFunctionName<TAbi, 'pure' | 'view'>,
+    const args extends ContractFunctionArgs<TAbi, 'pure' | 'view', functionName>,
   >(
-    args: Pick<
-      ReadContractParameters<typeof this.options.abi, functionName, args>,
-      'args' | 'functionName' | 'blockNumber' | 'blockTag'
-    >,
+    args: Pick<ReadContractParameters<TAbi, functionName, args>, 'args' | 'functionName' | 'blockNumber' | 'blockTag'>,
   ) {
     const result = await this.publicClient.readContract({
-      abi: this.options.abi,
-      address: this.options.contractAddress as `0x${string}`,
+      abi: this.abi,
+      address: this.contractAddress,
       functionName: args.functionName,
-      args: args.args,
+      args: args.args as unknown[],
       blockNumber: args.blockNumber,
       blockTag: args.blockTag,
     });
@@ -54,28 +61,28 @@ export abstract class ContractClientBase {
   }
 
   protected async simulateAndWriteContract<
-    functionName extends ContractFunctionName<typeof this.options.abi, 'pure' | 'view'>,
-    const args extends ContractFunctionArgs<typeof this.options.abi, 'pure' | 'view', functionName>,
+    functionName extends ContractFunctionName<TAbi, 'pure' | 'view'>,
+    const args extends ContractFunctionArgs<TAbi, 'pure' | 'view', functionName>,
   >(
     args: Pick<
-      SimulateContractParameters<typeof this.options.abi, functionName, args, any, any, any>,
+      SimulateContractParameters<TAbi, functionName, args, any, any, any>,
       'functionName' | 'account' | 'value' | 'nonce' | 'args'
     >,
   ) {
-    if (!this.options.walletClient) {
+    if (!this.walletClient) {
       throw new Error('Wallet client is not initialized');
     }
 
     const { request } = await this.publicClient.simulateContract({
-      abi: this.options.abi,
-      address: this.options.contractAddress as Address,
+      abi: this.abi,
+      address: this.contractAddress,
       functionName: args.functionName,
-      args: args.args,
-      account: this.options.walletClient.account,
+      args: args.args as unknown[],
+      account: this.walletClient.account,
       value: args.value,
       nonce: args.nonce,
     });
-    const result = await this.options.walletClient.writeContract(request);
+    const result = await this.walletClient.writeContract(request);
 
     return result;
   }
@@ -84,7 +91,7 @@ export abstract class ContractClientBase {
     return await this.publicClient.multicall(parameters);
   }
 
-  protected async waitForTransactionReceipt(args: WaitForTransactionReceiptParameters<typeof this.options.chain>) {
+  protected async waitForTransactionReceipt(args: WaitForTransactionReceiptParameters<typeof this.chain>) {
     return await this.publicClient.waitForTransactionReceipt(args);
   }
 }
