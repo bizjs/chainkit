@@ -1,5 +1,11 @@
 # @bizjs/chainkit-aptos
 
+## 0.0.3
+
+### Patch Changes
+
+- 3f6fe6c: feat:support public key input without 0x prefix
+
 ## 0.0.2
 
 ### Patch Changes
