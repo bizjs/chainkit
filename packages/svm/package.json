@@ -38,15 +38,15 @@
     "@metaplex-foundation/umi": "^1.2.0",
     "@metaplex-foundation/umi-bundle-defaults": "^1.2.0",
     "@noble/ed25519": "^2.3.0",
-    "@solana/spl-token-metadata": "^0.1.6"
+    "@solana/spl-token-metadata": "^0.1.6",
+    "bs58": "^6.0.0"
   },
   "devDependencies": {
     "@solana/spl-token": "^0.4.12",
-    "@solana/web3.js": "^1.98.2",
-    "bs58": "^6.0.0"
+    "@solana/web3.js": "^1.98.2"
   },
   "peerDependencies": {
-    "@solana/spl-token": "^0.4.12",
+    "@solana/spl-token": "^0.4.13",
     "@solana/web3.js": "^1.98.2"
   }
 }

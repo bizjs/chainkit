@@ -1,5 +1,5 @@
 import bs58 from 'bs58';
-import { verify } from '@noble/ed25519';
+import { verifyAsync } from '@noble/ed25519';
 import { naclVerify } from '@bizjs/chainkit-utils';
 
 import type { FetchTokenMetadataOptions, SplTokenFullMetadata } from '../types';
@@ -24,12 +24,12 @@ export async function verifyMessage(publicKey: string, message: string, signatur
  * @param signature base58 encoded signature
  * @returns
  */
-export function verifyOffchainMessage(publicKey: string, message: string, signature: string): boolean {
+export async function verifyOffchainMessage(publicKey: string, message: string, signature: string): Promise<boolean> {
   const messageBytes = bs58.decode(message);
   const pubkeyBytes = bs58.decode(publicKey);
   const signatureBytes = bs58.decode(signature);
 
-  return verify(signatureBytes, messageBytes, pubkeyBytes);
+  return verifyAsync(signatureBytes, messageBytes, pubkeyBytes);
 }
 
 /**

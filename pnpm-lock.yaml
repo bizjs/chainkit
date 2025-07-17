@@ -120,6 +120,9 @@ importers:
       '@solana/spl-token-metadata':
         specifier: ^0.1.6
         version: 0.1.6(@solana/web3.js@1.98.2(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10))(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.7.3)
+      bs58:
+        specifier: ^6.0.0
+        version: 6.0.0
     devDependencies:
       '@solana/spl-token':
         specifier: ^0.4.12
@@ -127,9 +130,6 @@ importers:
       '@solana/web3.js':
         specifier: ^1.98.2
         version: 1.98.2(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)
-      bs58:
-        specifier: ^6.0.0
-        version: 6.0.0
 
   packages/tvm:
     devDependencies:
