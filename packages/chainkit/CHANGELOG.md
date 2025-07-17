@@ -1,5 +1,12 @@
 # @bizjs/chainkit
 
+## 0.0.7
+
+### Patch Changes
+
+- Updated dependencies [6c5fa42]
+  - @bizjs/chainkit-svm@0.1.1
+
 ## 0.0.6
 
 ### Patch Changes
