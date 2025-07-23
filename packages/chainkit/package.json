@@ -1,42 +1,60 @@
 {
   "name": "@bizjs/chainkit",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "chainkit",
   "exports": {
     "./aptos": {
       "require": "./dist/aptos.js",
-      "import": "./dist/esm/aptos.js",
-      "types": "./dist/aptos.d.ts"
+      "import": "./dist/esm/aptos.js"
     },
     "./bitcoin": {
       "require": "./dist/bitcoin.js",
-      "import": "./dist/esm/bitcoin.js",
-      "types": "./dist/bitcoin.d.ts"
+      "import": "./dist/esm/bitcoin.js"
     },
     "./cardano": {
       "require": "./dist/cardano.js",
-      "import": "./dist/esm/cardano.js",
-      "types": "./dist/cardano.d.ts"
+      "import": "./dist/esm/cardano.js"
     },
     "./evm": {
       "require": "./dist/evm.js",
-      "import": "./dist/esm/evm.js",
-      "types": "./dist/evm.d.ts"
+      "import": "./dist/esm/evm.js"
     },
     "./starknet": {
       "require": "./dist/starknet.js",
-      "import": "./dist/esm/starknet.js",
-      "types": "./dist/starknet.d.ts"
+      "import": "./dist/esm/starknet.js"
     },
     "./svm": {
       "require": "./dist/svm.js",
-      "import": "./dist/esm/svm.js",
-      "types": "./dist/svm.d.ts"
+      "import": "./dist/esm/svm.js"
     },
     "./tvm": {
       "require": "./dist/tvm.js",
-      "import": "./dist/esm/tvm.js",
-      "types": "./dist/tvm.d.ts"
+      "import": "./dist/esm/tvm.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "aptos": [
+        "./dist/aptos.d.ts"
+      ],
+      "bitcoin": [
+        "./dist/bitcoin.d.ts"
+      ],
+      "cardano": [
+        "./dist/cardano.d.ts"
+      ],
+      "evm": [
+        "./dist/evm.d.ts"
+      ],
+      "starknet": [
+        "./dist/starknet.d.ts"
+      ],
+      "svm": [
+        "./dist/svm.d.ts"
+      ],
+      "tvm": [
+        "./dist/tvm.d.ts"
+      ]
     }
   },
   "files": [
