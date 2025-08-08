@@ -27,7 +27,7 @@ export abstract class ContractClientBase<TAbi extends Abi> {
   protected readonly abi: Abi;
   protected readonly contractAddress: Address;
   private readonly chain: Chain;
-  private readonly walletClient: WalletClient | undefined;
+  private walletClient: WalletClient | undefined;
 
   constructor(options: ContractClientBaseOptions) {
     this.abi = options.abi;
@@ -40,6 +40,14 @@ export abstract class ContractClientBase<TAbi extends Abi> {
       chain: this.chain,
       transport: http(options.endpoint),
     });
+  }
+
+  /**
+   * Allow delay setting a wallet client for write operations.
+   * @param walletClient
+   */
+  setWalletClient(walletClient: WalletClient) {
+    this.walletClient = walletClient;
   }
 
   protected async readContract<
@@ -87,11 +95,11 @@ export abstract class ContractClientBase<TAbi extends Abi> {
     return result;
   }
 
-  protected async multicall(parameters: MulticallParameters<any[], boolean>) {
+  public async multicall(parameters: MulticallParameters<any[], boolean>) {
     return await this.publicClient.multicall(parameters);
   }
 
-  protected async waitForTransactionReceipt(args: WaitForTransactionReceiptParameters<typeof this.chain>) {
+  public async waitForTransactionReceipt(args: WaitForTransactionReceiptParameters<typeof this.chain>) {
     return await this.publicClient.waitForTransactionReceipt(args);
   }
 }
