@@ -6,4 +6,5 @@ export enum ChainType {
   Aptos = 'Aptos',
   Solana = 'Solana',
   Starknet = 'Starknet',
+  SUI = 'SUI',
 }

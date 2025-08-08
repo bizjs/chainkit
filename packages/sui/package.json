@@ -1,7 +1,7 @@
 {
-  "name": "@bizjs/chainkit-evm",
-  "version": "0.1.1",
-  "description": "chainkit for evm",
+  "name": "@bizjs/chainkit-sui",
+  "version": "0.1.0",
+  "description": "chainkit for sui",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
@@ -12,11 +12,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "test": "vitest"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bizjs/chainkit.git"
@@ -24,19 +19,23 @@
   "bugs": {
     "url": "https://github.com/bizjs/chainkit/issues"
   },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest"
+  },
   "keywords": [
     "blockchain",
-    "evm",
-    "ethereum",
+    "sui",
     "chainkit"
   ],
   "author": "",
   "license": "MIT",
   "packageManager": "pnpm@10.7.0",
   "devDependencies": {
-    "viem": "^2.29.0"
+    "@mysten/sui": "^1.37.1"
   },
   "peerDependencies": {
-    "viem": "^2.29.0"
+    "@mysten/sui": "^1.37.1"
   }
 }

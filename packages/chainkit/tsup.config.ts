@@ -9,6 +9,7 @@ export default defineConfig({
     starknet: 'src/starknet.ts',
     svm: 'src/svm.ts',
     tvm: 'src/tvm.ts',
+    sui: 'src/sui.ts',
   },
   format: ['esm', 'cjs'],
   dts: true,
