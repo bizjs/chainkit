@@ -1,11 +1,15 @@
 {
   "name": "@bizjs/chainkit",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "chainkit",
   "exports": {
     "./aptos": {
       "require": "./dist/aptos.js",
       "import": "./dist/esm/aptos.js"
+    },
+    "./sui": {
+      "require": "./dist/sui.js",
+      "import": "./dist/esm/sui.js"
     },
     "./bitcoin": {
       "require": "./dist/bitcoin.js",
@@ -90,6 +94,7 @@
     "@bizjs/chainkit-aptos": "workspace:*",
     "@bizjs/chainkit-bitcoin": "workspace:*",
     "@bizjs/chainkit-cardano": "workspace:*",
-    "@bizjs/chainkit-starknet": "workspace:*"
+    "@bizjs/chainkit-starknet": "workspace:*",
+    "@bizjs/chainkit-sui": "workspace:*"
   }
 }

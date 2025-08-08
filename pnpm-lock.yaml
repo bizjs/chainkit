@@ -81,6 +81,9 @@ importers:
       '@bizjs/chainkit-starknet':
         specifier: workspace:*
         version: link:../starknet
+      '@bizjs/chainkit-sui':
+        specifier: workspace:*
+        version: link:../sui
       '@bizjs/chainkit-svm':
         specifier: workspace:*
         version: link:../svm

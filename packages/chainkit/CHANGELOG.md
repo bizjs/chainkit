@@ -1,5 +1,11 @@
 # @bizjs/chainkit
 
+## 0.1.0
+
+### Minor Changes
+
+- Add chainkit-sui package
+
 ## 0.0.9
 
 ### Patch Changes
