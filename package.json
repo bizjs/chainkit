@@ -18,6 +18,7 @@
     "tvm": "pnpm --filter @bizjs/chainkit-tvm",
     "svm": "pnpm --filter @bizjs/chainkit-svm",
     "aptos": "pnpm --filter @bizjs/chainkit-aptos",
+    "sui": "pnpm --filter @bizjs/chainkit-sui",
     "bitcoin": "pnpm --filter @bizjs/chainkit-bitcoin",
     "cardano": "pnpm --filter @bizjs/chainkit-cardano",
     "starknet": "pnpm --filter @bizjs/chainkit-starknet",
