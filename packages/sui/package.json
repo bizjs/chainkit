@@ -1,6 +1,6 @@
 {
   "name": "@bizjs/chainkit-sui",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "chainkit for sui",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
