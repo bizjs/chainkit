@@ -42,6 +42,10 @@ export abstract class ContractClientBase<TAbi extends Abi> {
     });
   }
 
+  get multicallParamsBase() {
+    return { address: this.contractAddress, abi: this.abi };
+  }
+
   /**
    * Allow delay setting a wallet client for write operations.
    * @param walletClient
@@ -76,6 +80,7 @@ export abstract class ContractClientBase<TAbi extends Abi> {
       SimulateContractParameters<TAbi, functionName, args, any, any, any>,
       'functionName' | 'account' | 'value' | 'nonce' | 'args'
     >,
+    options?: { walletClient?: WalletClient },
   ) {
     if (!this.walletClient) {
       throw new Error('Wallet client is not initialized');
@@ -90,7 +95,9 @@ export abstract class ContractClientBase<TAbi extends Abi> {
       value: args.value,
       nonce: args.nonce,
     });
-    const result = await this.walletClient.writeContract(request);
+
+    const wc = options?.walletClient || this.walletClient;
+    const result = await wc.writeContract(request);
 
     return result;
   }
