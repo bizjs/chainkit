@@ -1,5 +1,11 @@
 # @bizjs/chainkit-evm
 
+## 0.2.0
+
+### Minor Changes
+
+- Enhance ERC20ContractClient and ContractClientBase
+
 ## 0.1.1
 
 ### Patch Changes

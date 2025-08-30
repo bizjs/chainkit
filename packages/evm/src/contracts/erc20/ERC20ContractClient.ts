@@ -34,6 +34,18 @@ export class ERC20ContractClient extends ContractClientBase<typeof erc20Abi> {
     return result as bigint;
   }
 
+  async batchBalanceOf(addresses: Address[], allowFailure = false) {
+    const results = await this.multicall({
+      contracts: addresses.map((address) => ({
+        ...this.multicallParamsBase,
+        functionName: 'balanceOf',
+        args: [address],
+      })),
+      allowFailure,
+    });
+    return results;
+  }
+
   async allowance(owner: Address, spender: Address) {
     const result = await this.readContract({ functionName: 'allowance', args: [owner, spender] });
     return result as bigint;
