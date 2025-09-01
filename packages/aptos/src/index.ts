@@ -1,1 +1,1 @@
-export { verifyMessage, getDerivedAddress } from './utils';
+export { verifyMessage, getDerivedAddress, fetchFAMetadata } from './utils';

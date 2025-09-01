@@ -1,5 +1,11 @@
 # @bizjs/chainkit-aptos
 
+## 0.1.0
+
+### Minor Changes
+
+- Add fetchFAMetadata function
+
 ## 0.0.3
 
 ### Patch Changes

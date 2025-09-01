@@ -1,5 +1,12 @@
 # @bizjs/chainkit
 
+## 0.1.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @bizjs/chainkit-aptos@0.1.0
+
 ## 0.1.2
 
 ### Patch Changes
