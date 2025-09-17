@@ -22,6 +22,7 @@
     "bitcoin": "pnpm --filter @bizjs/chainkit-bitcoin",
     "cardano": "pnpm --filter @bizjs/chainkit-cardano",
     "starknet": "pnpm --filter @bizjs/chainkit-starknet",
+    "cosmos": "pnpm --filter @bizjs/chainkit-cosmos",
     "utils": "pnpm --filter @bizjs/chainkit-utils",
     "all": "pnpm --filter @bizjs/chainkit"
   },
