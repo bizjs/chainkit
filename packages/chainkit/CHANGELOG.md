@@ -1,5 +1,12 @@
 # @bizjs/chainkit
 
+## 0.1.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @bizjs/chainkit-starknet@0.0.3
+
 ## 0.1.3
 
 ### Patch Changes

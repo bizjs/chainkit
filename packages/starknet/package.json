@@ -1,6 +1,6 @@
 {
   "name": "@bizjs/chainkit-starknet",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "chainkit for starknet",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",

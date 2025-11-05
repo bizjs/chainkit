@@ -4,10 +4,10 @@ export function _getProvider(options: { network: constants.NetworkName; nodeUrl?
   const rpcProviderOptions: RpcProviderOptions = {};
   if (options.network === constants.NetworkName.SN_MAIN) {
     rpcProviderOptions.chainId = constants.StarknetChainId.SN_MAIN;
-    rpcProviderOptions.nodeUrl = 'https://starknet-mainnet.public.blastapi.io';
+    rpcProviderOptions.nodeUrl = 'https://starknet.drpc.org';
   } else if (options.network === constants.NetworkName.SN_SEPOLIA) {
     rpcProviderOptions.chainId = constants.StarknetChainId.SN_SEPOLIA;
-    rpcProviderOptions.nodeUrl = 'https://starknet-sepolia.public.blastapi.io';
+    rpcProviderOptions.nodeUrl = 'https://starknet-sepolia.drpc.org';
   } else {
     throw new Error('Invalid starknet network');
   }
