@@ -1,5 +1,11 @@
 # @bizjs/chainkit-starknet
 
+## 0.0.3
+
+### Patch Changes
+
+- Update default rpc endpoint
+
 ## 0.0.2
 
 ### Patch Changes

@@ -16,7 +16,7 @@ describe('starknet-chain', () => {
   test('should verify message and get address', async () => {
     const verified = await verifyMessage(testData.publicKey, testData.message, testData.signature, {
       network: constants.NetworkName.SN_MAIN,
-      // nodeUrl: 'https://starknet-mainnet.public.blastapi.io',
+      // nodeUrl: 'https://starknet.drpc.org',
     });
     expect(verified).toBe(true);
 
