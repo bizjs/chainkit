@@ -1,5 +1,5 @@
 import { verifyPersonalMessageSignature } from '@mysten/sui/verify';
-import { type CoinMetadata } from '@mysten/sui/client';
+import type { SuiClientTypes } from '@mysten/sui/client';
 import { _getClient, _getEd25519PublicKey, _getPublicKeyBuffer } from './_internal';
 import type { FetchTokenMetadataOptions } from '../types';
 
@@ -39,12 +39,15 @@ export function getDerivedAddress(publicKey: string): string {
   return pubKey.toSuiAddress();
 }
 
-export async function fetchTokenMetadata(coinType: string, options?: FetchTokenMetadataOptions): Promise<CoinMetadata> {
+export async function fetchTokenMetadata(
+  coinType: string,
+  options?: FetchTokenMetadataOptions,
+): Promise<SuiClientTypes.CoinMetadata> {
   const client = _getClient(options?.clusterOrEndpoint);
 
-  const metadata = await client.getCoinMetadata({ coinType });
-  if (!metadata) {
+  const { coinMetadata } = await client.getCoinMetadata({ coinType });
+  if (!coinMetadata) {
     throw new Error(`No metadata found for coin: ${coinType}`);
   }
-  return metadata;
+  return coinMetadata;
 }
