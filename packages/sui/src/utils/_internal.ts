@@ -1,5 +1,8 @@
-import { getFullnodeUrl, SuiClient } from '@mysten/sui/client';
+import { SuiGrpcClient } from '@mysten/sui/grpc';
 import { Ed25519PublicKey } from '@mysten/sui/keypairs/ed25519';
+import type { SuiNetwork } from '../types';
+
+const SUI_NETWORKS: readonly string[] = ['mainnet', 'testnet', 'devnet'];
 
 export function _getPublicKeyBuffer(publicKey: string): Buffer {
   const hasPrefix = publicKey.startsWith('0x') || publicKey.startsWith('00');
@@ -12,16 +15,14 @@ export function _getEd25519PublicKey(publicKey: string): Ed25519PublicKey {
   return pubKey;
 }
 
-export function _getClient(clusterOrEndpoint?: Parameters<typeof getFullnodeUrl>[0] | string) {
-  let url: string = '';
-  if (!clusterOrEndpoint) {
-    clusterOrEndpoint = 'mainnet';
+/**
+ * Create a gRPC client for a named network, or for a custom gRPC-web endpoint.
+ * A custom endpoint is tagged as mainnet; the tag only affects chain identity, not reads.
+ */
+export function _getClient(clusterOrEndpoint: SuiNetwork | string = 'mainnet') {
+  if (SUI_NETWORKS.includes(clusterOrEndpoint)) {
+    const network = clusterOrEndpoint as SuiNetwork;
+    return new SuiGrpcClient({ network, baseUrl: `https://fullnode.${network}.sui.io:443` });
   }
-  try {
-    url = getFullnodeUrl(clusterOrEndpoint as Parameters<typeof getFullnodeUrl>[0]);
-  } catch {
-    url = clusterOrEndpoint as string;
-  }
-  const client = new SuiClient({ url });
-  return client;
+  return new SuiGrpcClient({ network: 'mainnet', baseUrl: clusterOrEndpoint });
 }
