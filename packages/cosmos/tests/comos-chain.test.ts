@@ -14,6 +14,13 @@ describe('cosmos-chain', () => {
     chainId: 'cosmoshub-4',
   };
 
+  const demo2 = {
+    "signature": "pEyiZTlKPKV7TH6FVJqWCKXg7jZw5HmOBXxXsdjj7awgBn3hZvX5qD6bXuSMYVv2U1tST5G9oXlHT4CAduwNyA==",
+    "message": "AD_SQ5waoPPl4Xt,Cosmos Wallet,1758533359831",
+    "key": "A0PqgWmKt/wpPlSExXI6va9ITDxd1Mtel/0VFBAusdwu",
+    "address": "cosmos12se5we4rp3ltn9elrkngyhrp7nvg659pfyz9n8",
+  }
+
   test('should verify message', () => {
     const verified = verifyMessage(
       testData.signature.pub_key.value,
@@ -22,6 +29,11 @@ describe('cosmos-chain', () => {
       testData.address,
     );
     expect(verified).toBe(true);
+    const a = verifyMessage(
+      demo2.key, demo2.message, demo2.signature, demo2.address
+
+    );
+    console.log(a)
   });
 
   test('should verify message failed', () => {
