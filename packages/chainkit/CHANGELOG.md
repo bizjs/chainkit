@@ -1,5 +1,12 @@
 # @bizjs/chainkit
 
+## 0.1.5
+
+### Patch Changes
+
+- Updated dependencies [784eb15]
+  - @bizjs/chainkit-sui@0.3.0
+
 ## 0.1.4
 
 ### Patch Changes
