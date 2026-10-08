@@ -1,7 +1,7 @@
 import { constants, RpcProvider, type RpcProviderOptions } from 'starknet';
 
 export function _getProvider(options: { network: constants.NetworkName; nodeUrl?: string }) {
-  const rpcProviderOptions: RpcProviderOptions = {};
+  const rpcProviderOptions: RpcProviderOptions = { blockIdentifier: 'latest' };
   if (options.network === constants.NetworkName.SN_MAIN) {
     rpcProviderOptions.chainId = constants.StarknetChainId.SN_MAIN;
     rpcProviderOptions.nodeUrl = 'https://starknet.drpc.org';
